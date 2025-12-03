@@ -5,6 +5,32 @@
     box-sizing: border-box;
 }
 
+/* --- 頂部 CSS 強制修正：確保 Aside 收合佈局生效 --- */
+
+.page-container {
+    /* 確保初始佈局和動畫定義正確 */
+    grid-template-columns: 200px 1fr;
+    transition: grid-template-columns 0.3s ease !important; 
+}
+
+/* 核心修正: 當 aside-collapsed 類別被加入時，縮小 aside 欄位 */
+.page-container.aside-collapsed {
+    grid-template-columns: 50px 1fr !important;
+}
+
+/* 確保收合後 aside 內容被隱藏 */
+.page-container.aside-collapsed .aside-content {
+    display: none !important;
+}
+
+/* 確保收合後 Logo 圖片隱藏 */
+.page-container.aside-collapsed .logo img {
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+/* --- 頂部 CSS 強制修正結束 --- */
+
 /* --- 字體樣式定義 --- */
 
 /* aside 區塊標題文字 */
