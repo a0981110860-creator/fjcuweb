@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="page-container">
+    <div class="page-container" id="page-container">
         <div class="logo">
             <a href="index.html">
                 <img src="media/Logo.jpg" alt="小日子 Logo">
@@ -32,7 +32,7 @@
 
         <aside class="aside">
             <div class="aside-content">
-                <h2 class="H2-text">選單 Menu</h2>
+                <h2 class="H2-text aside-menu-title" id="aside-menu-title">選單 Menu</h2>
                 <nav class="aside-menu">
                     <ul>
                         <li><a href="begin.html">關於我們</a></li>
@@ -78,5 +78,33 @@
             </div>
         </footer>
     </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Collapse/Expand Toggle (可收合內容的開關，如果您頁面有用到) ---
+        const toggles = document.querySelectorAll('.collapse-toggle');
+
+        toggles.forEach(toggle => {
+            const content = toggle.nextElementSibling;
+            
+            toggle.addEventListener('click', () => {
+                content.classList.toggle('collapsed');
+            });
+        });
+
+        // --- 2. Aside Menu Toggle (側邊欄收合的關鍵程式碼) ---
+        const asideTitle = document.getElementById('aside-menu-title');
+        const pageContainer = document.getElementById('page-container');
+
+        // 確保元素存在才執行監聽
+        if (asideTitle && pageContainer) {
+            asideTitle.style.cursor = 'pointer'; 
+            
+            asideTitle.addEventListener('click', () => {
+                // 點擊時切換 aside-collapsed 類別
+                pageContainer.classList.toggle('aside-collapsed');
+            });
+        }
+    });
+</script>
 </body>
 </html>

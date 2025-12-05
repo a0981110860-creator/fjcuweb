@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="page-container">
+    <div class="page-container" id="page-container">
         <div class="logo">
             <a href="index.html">
                 <img src="media/Logo.jpg" alt="小日子 Logo">
@@ -32,7 +32,7 @@
 
         <aside class="aside">
             <div class="aside-content">
-                <h2 class="H2-text">選單 Menu</h2>
+                <h2 class="H2-text aside-menu-title" id="aside-menu-title">選單 Menu</h2>
                 <nav class="aside-menu">
                     <ul>
                         <li><a href="begin.html">關於我們</a></li>
@@ -63,7 +63,10 @@
                     <h5 class="H5-1-text">綠葡萄氣泡飲</h5>
                 </div>
                 
-                </div>
+                <div class="product-item" style="border: none; background: none; visibility: hidden;">
+                    </div>
+                
+            </div>
         </main>
 
         <footer class="footer">
@@ -81,5 +84,31 @@
             </div>
         </footer>
     </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Collapse/Expand Toggle (for Main Content) ---
+        const toggles = document.querySelectorAll('.collapse-toggle');
+
+        toggles.forEach(toggle => {
+            const content = toggle.nextElementSibling;
+            
+            toggle.addEventListener('click', () => {
+                content.classList.toggle('collapsed');
+            });
+        });
+
+        // --- 2. Aside Menu Toggle (Aside 選單收合功能) ---
+        const asideTitle = document.getElementById('aside-menu-title');
+        const pageContainer = document.getElementById('page-container');
+
+        if (asideTitle && pageContainer) {
+            asideTitle.style.cursor = 'pointer'; 
+            
+            asideTitle.addEventListener('click', () => {
+                pageContainer.classList.toggle('aside-collapsed');
+            });
+        }
+    });
+</script>
 </body>
 </html>

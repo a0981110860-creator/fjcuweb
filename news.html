@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="page-container">
+    <div class="page-container" id="page-container">
         <div class="logo">
             <a href="index.html">
                 <img src="media/Logo.jpg" alt="小日子 Logo">
@@ -32,7 +32,7 @@
 
         <aside class="aside">
             <div class="aside-content">
-                <h2 class="H2-text">選單 Menu</h2>
+                <h2 class="H2-text aside-menu-title" id="aside-menu-title">選單 Menu</h2>
                 <nav class="aside-menu">
                     <ul>
                         <li><a href="begin.html">關於我們</a></li>
@@ -125,20 +125,31 @@
     </div>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Collapse/Expand Toggle (for Main Content: 關於我們, 最新消息) ---
         const toggles = document.querySelectorAll('.collapse-toggle');
 
         toggles.forEach(toggle => {
-            // 找到緊跟在 toggle 後面的可收合內容區塊
             const content = toggle.nextElementSibling;
             
-            // 預設將所有內容設置為收合狀態 (除非你希望預設展開，那可以註釋掉這行)
-            // content.classList.add('collapsed'); 
-
+            // 由於 CSS 預設是展開，這裡不再需要 content.classList.add('collapsed');
+            
             toggle.addEventListener('click', () => {
-                // 切換收合內容的 'collapsed' 類別
+                // 核心邏輯：切換 collapsed 類別
                 content.classList.toggle('collapsed');
             });
         });
+
+        // --- 2. Aside Menu Toggle (Aside 選單收合功能) ---
+        const asideTitle = document.getElementById('aside-menu-title');
+        const pageContainer = document.getElementById('page-container');
+
+        if (asideTitle && pageContainer) {
+            asideTitle.style.cursor = 'pointer'; 
+            
+            asideTitle.addEventListener('click', () => {
+                pageContainer.classList.toggle('aside-collapsed');
+            });
+        }
     });
 </script>
 </body>
