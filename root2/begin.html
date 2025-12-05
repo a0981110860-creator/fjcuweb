@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於我們 - 小日子</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="page-container" id="page-container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="media/Logo.jpg" alt="小日子 Logo">
+            </a>
+        </div>
+
+        <header class="header">
+            <h3 class="H3-text">關於我們</h3>
+            <div class="header-tools">
+                <div class="music-player">
+                    <audio id="web-music" src="music/webmusic.mp3" loop></audio>
+                    <button onclick="document.getElementById('web-music').play()">
+                        <i class="fas fa-play"></i> 播放音樂
+                    </button>
+                    <button onclick="document.getElementById('web-music').pause()">
+                        <i class="fas fa-pause"></i> 暫停音樂
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <aside class="aside">
+            <div class="aside-content">
+                <h2 class="H2-text aside-menu-title" id="aside-menu-title">選單 Menu</h2>
+                <nav class="aside-menu">
+                    <ul>
+                        <li><a href="begin.html">關於我們</a></li>
+                        <li><a href="news.html">最新消息</a></li>
+                        <li><a href="Sanchongin.html">三重門市</a></li>
+                        <li><a href="Qinmei.html">勤美門市</a></li>
+                        <li><a href="Basque.html">巴斯克蛋糕</a></li>
+                        <li><a href="Mille Crepe.html">千層蛋糕</a></li>
+                        <li><a href="Gelato.html">義式冰淇淋</a></li>
+                        <li><a href="Tea.html">茶飲</a></li>
+                        <li><a href="coffee.html">咖啡</a></li>
+                        <li><a href="Sparkling.html">氣泡飲</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="about-content">
+                <h5 class="H5-1-text intro">
+                    小日子創立於2023年4月10日，我們的品牌從一份對甜點的熱愛開始，希望打造一個讓人走進就能被療癒、感到溫柔被款待的甜點空間。
+                </h5>
+                
+                <h5 class="H5-2-text collapse-toggle">品牌故事 Brand Story</h5>
+                <div class="collapsible-content">
+                    <p>
+                        起初，我們只是想做出「能讓人真正感到幸福」的甜點。
+                    </p>
+                    <p>
+                        從挑選食材、研發配方到反覆試烤，每一道甜點都是在無數次嘗試後誕生的作品。 我們相信，甜點不是奢侈品，而是生活裡的慰藉。
+                    </p>
+                    <p>
+                        一塊蛋糕、一份塔、一口酥脆，都是讓人短暫逃離忙碌、獲得能量的小確幸。 雖然店內也供應兩款精選咖啡，但我們更重視的是讓飲品成為甜點的陪伴，而不是主角。
+                    </p>
+                    <p>
+                        在這裡，你能用甜點找到片刻放鬆，也能用咖啡讓這段時光變得更完整。
+                    </p>
+                </div>
+
+                <h5 class="H5-2-text collapse-toggle">理念 Philosophy</h5>
+                <div class="collapsible-content">
+                    <p>
+                        我們堅持「甜點應該是帶來幸福的味道」。
+                    </p>
+                    <p>
+                        不追求浮誇，只追求美味與真誠。
+                    </p>
+                    <p>
+                        用天然食材、手作溫度與細節堆疊，打造簡單卻令人難忘的味道。
+                    </p>
+                    <p>
+                        我們希望每位客人無論因為什麼理由來，都能在這裡找到屬於自己的甜點時刻。
+                    </p>
+                </div>
+
+                <h5 class="H5-2-text collapse-toggle">願景 Vision</h5>
+                <div class="collapsible-content">
+                    <p>
+                        未來，我們希望成為一個讓人想到「療癒」就會想起的甜點品牌。
+                    </p>
+                    <p>
+                        持續創作季節甜點、推出更多以味覺與生活為主題的活動，讓甜點不只是食物，而是一種陪伴、一種情緒上的溫度。
+                    </p>
+                    <p>
+                        我們的願景是：用甜點為你帶來柔軟、幸福的日常。
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="copyright">© 小日子 2023</div>
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram-square"></i>
+                </a>
+                <a href="https://line.me" target="_blank" title="Line">
+                    <i class="fab fa-line"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Collapse/Expand Toggle (for Main Content: 關於我們, 最新消息) ---
+        const toggles = document.querySelectorAll('.collapse-toggle');
+
+        toggles.forEach(toggle => {
+            const content = toggle.nextElementSibling;
+            
+            // 由於 CSS 預設是展開，這裡不再需要 content.classList.add('collapsed');
+            
+            toggle.addEventListener('click', () => {
+                // 核心邏輯：切換 collapsed 類別
+                content.classList.toggle('collapsed');
+            });
+        });
+
+        // --- 2. Aside Menu Toggle (Aside 選單收合功能) ---
+        const asideTitle = document.getElementById('aside-menu-title');
+        const pageContainer = document.getElementById('page-container');
+
+        if (asideTitle && pageContainer) {
+            asideTitle.style.cursor = 'pointer'; 
+            
+            asideTitle.addEventListener('click', () => {
+                pageContainer.classList.toggle('aside-collapsed');
+            });
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+/* 基本重設 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- 頂部 CSS 強制修正：確保 Aside 收合佈局生效 --- */
+
+.page-container {
+    /* 確保初始佈局和動畫定義正確 */
+    grid-template-columns: 200px 1fr;
+    transition: grid-template-columns 0.3s ease !important; 
+}
+
+/* 核心修正: 當 aside-collapsed 類別被加入時，縮小 aside 欄位 */
+.page-container.aside-collapsed {
+    grid-template-columns: 50px 1fr !important;
+}
+
+/* 確保收合後 aside 內容被隱藏 */
+.page-container.aside-collapsed .aside-content {
+    display: none !important;
+}
+
+/* 確保收合後 Logo 圖片隱藏 */
+.page-container.aside-collapsed .logo img {
+    opacity: 0 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+/* --- 頂部 CSS 強制修正結束 --- */
+
+/* --- 字體樣式定義 --- */
+
+/* aside 區塊標題文字 */
+.H2-text {
+    color: #4A3B33;
+}
+
+/* header 區塊選單標題 */
+.H3-text {
+    color: #FFFFFF;
+    font-size: 2.0rem; /* 修正：將標題文字調整為 2.0rem */
+}
+
+/* 首頁 main 區塊連結文字 (原始 2.4rem) */
+.H5-1-text {
+    font-size: 2.4rem; /* 文字大小 2.4rem */
+    color: #5A463A; /* 字體顏色 #5A463A */
+    text-decoration: none;
+}
+
+/* 關於我們/內頁創立宣言文字 (修正為略大於內文，例如 1.5rem) */
+.H5-1-text.intro {
+    font-size: 1.5rem; /* 調整為略大於內文 (1.1rem) 的大小 */
+    margin-bottom: 30px;
+}
+
+/* 粗體標題文字 (可收合/點擊展開的文字) */
+.H5-2-text {
+    font-size: 3.2rem; 
+    color: #5A463A; 
+    font-weight: bold;
+    cursor: pointer; /* 提示可點擊 */
+    padding: 15px 0;
+    margin-top: 20px;
+    border-bottom: 2px solid #C89F72;
+}
+
+/* 內頁小標題 (如招募職缺、我們希望你 - 統一為 1.8rem) */
+.news-inner-heading {
+    font-size: 1.8rem;
+    color: #5A463A;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* 門市資訊文字 (H5-2 樣式，但不需要粗體和點擊效果，專用於門市介紹資訊) */
+.H5-2-text-info {
+    font-size: 1.8rem;
+    color: #5A463A;
+    line-height: 2;
+    font-weight: normal;
+    margin-top: 15px;
+}
+
+/* --- 網頁主要結構樣式 (使用 Grid 佈局) --- */
+
+.page-container {
+    display: grid;
+    grid-template-areas:
+        "logo header"
+        "aside main"
+        "footer footer";
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto; 
+    min-height: 100vh;
+}
+
+/* 1. Logo 區塊 */
+.logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 2. Header 區塊 */
+.header {
+    grid-area: header;
+    background-color: #4A3B33;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: #FFFFFF;
+}
+.header-tools {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+/* 音樂播放器樣式 */
+.music-player button {
+    cursor: pointer;
+    background: none;
+    border: 1px solid #FFFFFF; 
+    color: #FFFFFF;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* 3. Aside 區塊 (選單) */
+.aside {
+    grid-area: aside;
+    background: linear-gradient(to bottom, #F8EEDC, #C89F72);
+    padding: 20px;
+    overflow-y: auto; 
+}
+.aside-menu ul {
+    list-style: none;
+}
+.aside-menu ul li a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #4A3B33; 
+    font-size: 1.1rem;
+}
+.aside-menu ul li a:hover {
+    color: #5A463A;
+    font-weight: bold;
+}
+
+/* 4. Main 區塊 */
+.main {
+    grid-area: main;
+    padding: 20px;
+    background-color: #F8EEDC; /* 底色為 #F8EEDC */
+    overflow-y: auto;
+}
+
+/* 首頁 main 組合樣式 */
+.main-index {
+    background-color: #F8EEDC; 
+}
+
+/* 關於我們/最新消息內容區塊 */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    text-align: left; /* 讓文字內容更易讀 */
+}
+
+/* 內頁文字段落樣式 */
+.about-content p {
+    font-size: 1.1rem;
+    color: #5A463A;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* 內頁列表樣式 */
+.about-content ul {
+    list-style-type: disc;
+    list-style-position: inside;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+.about-content ul li {
+    font-size: 1.1rem; /* 確保列表文字大小統一 */
+    color: #5A463A;
+    line-height: 1.6;
+}
+
+/* 可收合內容區塊 (實作收合動畫的關鍵 CSS) */
+.collapsible-content {
+    border-left: 5px solid #C89F72;
+    padding-left: 20px;
+    
+    max-height: 2000px; 
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.collapsible-content.collapsed {
+    max-height: 0; 
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* 門市資訊頁面樣式 */
+.store-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-top: 20px;
+    text-align: center;
+}
+.store-container .H5-1-text {
+    /* 門市名稱 */
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.store-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; 
+    margin: 20px 0;
+}
+
+/* 產品頁面佈局 (Basque.html, etc.) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+.product-item {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #C89F72;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.product-item img {
+    width: 100%;
+    height: auto; 
+    object-fit: contain; /* 關鍵改變：圖片完整顯示，不會被裁切 */
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+/* 產品名稱使用 H5-1-text 樣式 */
+.product-item .H5-1-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* section 區塊 - 首頁 grid 佈局 */
+.index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+    position: relative; 
+    z-index: 1; 
+}
+
+.index-item a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #C89F72;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.7); 
+    text-decoration: none;
+}
+.index-item a i {
+    font-size: 3rem;
+    color: #5A463A;
+    margin-bottom: 10px;
+}
+.index-item a .H5-1-text {
+    color: #5A463A;
+}
+
+
+/* 5. Footer 區塊 */
+.footer {
+    grid-area: footer;
+    background-color: #5A463A; /* 底色為 #5A463A */
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    font-size: 0.9rem;
+}
+.copyright {
+    flex-grow: 1;
+    text-align: center;
+}
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+.social-links a {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+.social-links a:hover {
+    color: #F8EEDC;
+}

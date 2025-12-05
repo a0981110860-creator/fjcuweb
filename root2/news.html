@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最新消息 - 小日子</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="page-container" id="page-container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="media/Logo.jpg" alt="小日子 Logo">
+            </a>
+        </div>
+
+        <header class="header">
+            <h3 class="H3-text">最新消息</h3>
+            <div class="header-tools">
+                <div class="music-player">
+                    <audio id="web-music" src="music/webmusic.mp3" loop></audio>
+                    <button onclick="document.getElementById('web-music').play()">
+                        <i class="fas fa-play"></i> 播放音樂
+                    </button>
+                    <button onclick="document.getElementById('web-music').pause()">
+                        <i class="fas fa-pause"></i> 暫停音樂
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <aside class="aside">
+            <div class="aside-content">
+                <h2 class="H2-text aside-menu-title" id="aside-menu-title">選單 Menu</h2>
+                <nav class="aside-menu">
+                    <ul>
+                        <li><a href="begin.html">關於我們</a></li>
+                        <li><a href="news.html">最新消息</a></li>
+                        <li><a href="Sanchongin.html">三重門市</a></li>
+                        <li><a href="Qinmei.html">勤美門市</a></li>
+                        <li><a href="Basque.html">巴斯克蛋糕</a></li>
+                        <li><a href="Mille Crepe.html">千層蛋糕</a></li>
+                        <li><a href="Gelato.html">義式冰淇淋</a></li>
+                        <li><a href="Tea.html">茶飲</a></li>
+                        <li><a href="coffee.html">咖啡</a></li>
+                        <li><a href="Sparkling.html">氣泡飲</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="about-content">
+                
+                <h5 class="H5-2-text collapse-toggle">最新消息 | 招募資訊</h5>
+                <div class="collapsible-content">
+                    <p>
+                        我們正在尋找一起打造甜點幸福感的夥伴!
+                    </p>
+                    <p>
+                        自2019年創立以來，我們始終相信：甜點能帶給人力量，而用心的服務能讓這份甜蜜被真正感受到。如果你也喜歡甜點、喜歡溫暖的客人互動，歡迎加入我們的團隊。
+                    </p>
+                    <div class="news-inner-heading">招募職缺</div>
+                    <ul>
+                        <li>甜點助理 (協助甜點製作、備料、烘焙流程)</li>
+                        <li>服務人員 (接待、點餐、出餐、維持環境)</li>
+                    </ul>
+                    <div class="news-inner-heading">我們希望你</div>
+                    <ul>
+                        <li>喜歡甜點、願意學習</li>
+                        <li>重視整潔、細節與團隊合作</li>
+                        <li>做事有耐心、態度穩定</li>
+                        <li>有經驗更佳，無經驗也歡迎</li>
+                    </ul>
+                     <div class="news-inner-heading">我們提供</div>
+                    <ul>
+                        <li>完整培訓</li>
+                        <li>穩定排班</li>
+                        <li>友善工作環境</li>
+                        <li>員工餐與甜點福利</li>
+                    </ul>
+                    <p>
+                        若你期待在甜點香氣與愉快的氛圍中工作，歡迎將履歷與可上班時段寄至：<br>
+                        <a href="mailto:LittleDays@gmail.com" style="color: #5A463A;">LittleDays@gmail.com</a>
+                    </p>
+                    <p>
+                        我們會盡快回覆你!
+                    </p>
+                </div>
+                
+                <h5 class="H5-2-text collapse-toggle">最新消息 | 跨年營業時間調整</h5>
+                <div class="collapsible-content">
+                    <p>
+                        闆闆與夥伴們跨年啦!
+                    </p>
+                    <p style="font-weight: bold;">
+                        本週三 (12/31) 營業至下午3:00，本週四 (1/1) 全日公休。
+                    </p>
+                    <p>
+                        若有提前預訂甜點或蛋糕的需求，也歡迎私訊我們，我們會協助調整取貨時間。
+                    </p>
+                    <p>
+                        感謝日迷們一直以來的支持與理解，祝你有個甜甜的週末!
+                    </p>
+                </div>
+                
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="copyright">© 小日子 2023</div>
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-square"></i>
+                </a>
+                <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram-square"></i>
+                </a>
+                <a href="https://line.me" target="_blank" title="Line">
+                    <i class="fab fa-line"></i>
+                </a>
+            </div>
+        </footer>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Collapse/Expand Toggle (for Main Content: 關於我們, 最新消息) ---
+        const toggles = document.querySelectorAll('.collapse-toggle');
+
+        toggles.forEach(toggle => {
+            const content = toggle.nextElementSibling;
+            
+            // 由於 CSS 預設是展開，這裡不再需要 content.classList.add('collapsed');
+            
+            toggle.addEventListener('click', () => {
+                // 核心邏輯：切換 collapsed 類別
+                content.classList.toggle('collapsed');
+            });
+        });
+
+        // --- 2. Aside Menu Toggle (Aside 選單收合功能) ---
+        const asideTitle = document.getElementById('aside-menu-title');
+        const pageContainer = document.getElementById('page-container');
+
+        if (asideTitle && pageContainer) {
+            asideTitle.style.cursor = 'pointer'; 
+            
+            asideTitle.addEventListener('click', () => {
+                pageContainer.classList.toggle('aside-collapsed');
+            });
+        }
+    });
+</script>
+</body>
+</html>
